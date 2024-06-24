@@ -1,12 +1,11 @@
-import { useState } from "react";
 import { UserTextInput } from "../input-components/UserInput";
-import { LogIn } from "../../types/types";
-import { defaultData } from "../../functions/default-data";
 import { validations } from "../../functions/validations";
 import toast from "react-hot-toast";
+import { useLogIn } from "../../functions/ProvidersContexts";
 
 export const LogInForm = () => {
-  const [logIn, setLogIn] = useState<LogIn>(defaultData.defaultLogIn);
+
+  const {logIn, setLogIn, checkLogIn} = useLogIn()
 
   return (
     <form 
@@ -19,7 +18,13 @@ export const LogInForm = () => {
             return
           }
 
-          
+          checkLogIn(logIn)
+
+          setLogIn({
+            username: '',
+            password: ''
+          })
+
         }}
     >
       <h3>Log In</h3>

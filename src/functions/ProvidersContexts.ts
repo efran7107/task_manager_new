@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { ThemeProviderState, TUserProvider } from "../types/types";
+import { ThemeProviderState, TLogInProvider, TUserProvider } from "../types/types";
 
 export const UserContext = createContext<TUserProvider>({} as TUserProvider)
 
@@ -19,3 +19,7 @@ export const useTheme = () => {
   
     return context;
   };
+
+  export const LogInContext = createContext<TLogInProvider>({} as TLogInProvider)
+
+  export const useLogIn = () => useContext(LogInContext)
