@@ -33,7 +33,7 @@ const db = {
       teamLeaderId: 5,
     },
   ],
-  teamMembers: [
+  users: [
     {
       id: 0,
       name: "John Doe",
@@ -71,118 +71,118 @@ const db = {
       email: "logan@email.com",
     },
   ],
-  teamMemberAuth: [
+  usersAuth: [
     {
       id: 0,
-      teamMemberId: 0,
+      userId: 0,
       password: "1234",
     },
     {
       id: 1,
-      teamMemberId: 1,
+      userId: 1,
       password: "5678",
     },
     {
       id: 2,
-      teamMemberId: 2,
+      userId: 2,
       password: "test",
     },
     {
       id: 3,
-      teamMemberId: 3,
+      userId: 3,
       password: "voldemort",
     },
     {
       id: 4,
-      teamMemberId: 4,
+      userId: 4,
       password: "maximumEffort",
     },
     {
       id: 5,
-      teamMemberId: 5,
+      userId: 5,
       password: "bub",
     },
   ],
-  teamMemberTeamsLink: [
+  usersTeamsLink: [
     {
       id: 0,
       teamId: 0,
-      teamMemberId: 0,
+      userId: 0,
     },
     {
       id: 1,
       teamId: 0,
-      teamMemberId: 1,
+      userId: 1,
     },
     {
       id: 2,
       teamId: 0,
-      teamMemberId: 2,
+      userId: 2,
     },
     {
       id: 3,
       teamId: 0,
-      teamMemberId: 3,
+      userId: 3,
     },
     {
       id: 4,
       teamId: 0,
-      teamMemberId: 4,
+      userId: 4,
     },
     {
       id: 5,
       teamId: 0,
-      teamMemberId: 5,
+      userId: 5,
     },
     {
       id: 6,
       teamId: 1,
-      teamMemberId: 0,
+      userId: 0,
     },
     {
       id: 7,
       teamId: 1,
-      teamMemberId: 1,
+      userId: 1,
     },
     {
       id: 8,
       teamId: 1,
-      teamMemberId: 2,
+      userId: 2,
     },
     {
       id: 9,
       teamId: 1,
-      teamMemberId: 3,
+      userId: 3,
     },
     {
       id: 10,
       teamId: 1,
-      teamMemberId: 4,
+      userId: 4,
     },
     {
       id: 11,
       teamId: 1,
-      teamMemberId: 5,
+      userId: 5,
     },
     {
       id: 12,
       teamId: 2,
-      teamMemberId: 2,
+      userId: 2,
     },
     {
       id: 13,
       teamId: 3,
-      teamMemberId: 3,
+      userId: 3,
     },
     {
       id: 14,
       teamId: 4,
-      teamMemberId: 4,
+      userId: 4,
     },
     {
       id: 15,
       teamId: 5,
-      teamMemberId: 5,
+      userId: 5,
     },
   ],
   tasks: [
@@ -194,7 +194,7 @@ const db = {
       status: "to-do",
       dueDate: "5/17/24",
       isImportant: false,
-      taskCreater: 0
+      userCreaterId: 0
     },
     {
       id: 1,
@@ -203,7 +203,7 @@ const db = {
       status: "done",
       dueDate: "1/1/25",
       isImportant: false,
-      taskCreater: 0
+      userCreaterId: 0
     },
     {
       id: 2,
@@ -212,7 +212,7 @@ const db = {
       status: "to-do",
       dueDate: "1/1/25",
       isImportant: false,
-      taskCreater: 0
+      userCreaterId: 0
     },
     {
       id: 3,
@@ -221,7 +221,7 @@ const db = {
       status: "doing",
       dueDate: "1/1/25",
       isImportant: false,
-      taskCreater: 0
+      userCreaterId: 0
     },
     {
       id: 4,
@@ -230,7 +230,7 @@ const db = {
       status: "to-do",
       dueDate: "1/1/25",
       isImportant: false,
-      taskCreater: 0
+      userCreaterId: 0
     },
     {
       id: 5,
@@ -239,7 +239,7 @@ const db = {
       status: "doing",
       dueDate: "1/1/25",
       isImportant: false,
-      taskCreater: 0
+      userCreaterId: 0
     },
     {
       id: 6,
@@ -248,7 +248,7 @@ const db = {
       status: "done",
       dueDate: "1/1/25",
       isImportant: false,
-      taskCreater: 0
+      userCreaterId: 0
     },
     {
       id: 7,
@@ -257,7 +257,7 @@ const db = {
       status: "doing",
       dueDate: "1/1/25",
       isImportant: false,
-      taskCreater: 0
+      userCreaterId: 0
     },
     {
       id: 8,
@@ -266,103 +266,103 @@ const db = {
       status: "done",
       dueDate: "1/1/25",
       isImportant: false,
-      taskCreater: 0
+      userCreaterId: 0
     },
   ],
   taskAssignmentLink: [
     {
       id: 0,
-      teamMemberId: 0,
+      userId: 0,
       taskId: 0,
     },
     {
       id: 1,
-      teamMemberId: 1,
+      userId: 1,
       taskId: 0,
     },
     {
       id: 2,
-      teamMemberId: 2,
+      userId: 2,
       taskId: 0,
     },
     {
       id: 3,
-      teamMemberId: 3,
+      userId: 3,
       taskId: 0,
     },
     {
       id: 4,
-      teamMemberId: 4,
+      userId: 4,
       taskId: 0,
     },
     {
       id: 5,
-      teamMemberId: 5,
+      userId: 5,
       taskId: 0,
     },
     {
       id: 6,
-      teamMemberId: 0,
+      userId: 0,
       taskId: 1,
     },
     {
       id: 7,
-      teamMemberId: 1,
+      userId: 1,
       taskId: 1,
     },
     {
       id: 8,
-      teamMemberId: 2,
+      userId: 2,
       taskId: 1,
     },
     {
       id: 9,
-      teamMemberId: 3,
+      userId: 3,
       taskId: 1,
     },
     {
       id: 10,
-      teamMemberId: 4,
+      userId: 4,
       taskId: 1,
     },
     {
       id: 11,
-      teamMemberId: 5,
+      userId: 5,
       taskId: 1,
     },
     {
       id: 12,
-      teamMemberId: 0,
+      userId: 0,
       taskId: 2,
     },
     {
       id: 13,
-      teamMemberId: 0,
+      userId: 0,
       taskId: 3,
     },
     {
       id: 14,
-      teamMemberId: 0,
+      userId: 0,
       taskId: 4,
     },
     {
       id: 15,
-      teamMemberId: 0,
+      userId: 0,
       taskId: 5,
     },
     {
       id: 16,
-      teamMemberId: 0,
+      userId: 0,
       taskId: 6,
     },
     {
       id: 17,
-      teamMemberId: 0,
+      userId: 0,
       taskId: 7,
     },
     {
       id: 18,
-      teamMemberId: 0,
+      userId: 0,
       taskId: 8,
     },
   ],
@@ -460,7 +460,7 @@ const db = {
       noteTitle: "Note 1",
       noteContent:
         "Yeah can you be any more vegue with the content of your task description because I dont know if you're trying to make sense or waste line space.",
-      teamMemberId: 0,
+      userId: 0,
       taskId: 0,
     },
   ],

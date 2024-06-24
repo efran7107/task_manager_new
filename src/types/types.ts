@@ -3,11 +3,18 @@ import { ComponentProps } from "react";
 export type PageStatus = 'loading' | 'logged-out' | 'dashboard' | 'add-task';
 
 export type TUserProvider = {
-    user: User
-    setUser: (user: User) => void
+    user: Users
+    setUser: (user: Users) => void
     pageStatus: PageStatus
     setPageStatus: (status: PageStatus) => void
+    allUsers: Users[]
 }
+
+export type TLogInProvider = {
+  logIn: LogIn;
+  setLogIn: (logIn: LogIn) => void;
+  checkLogIn: (userLogIn: LogIn) => void
+} 
 
 export type Team = {
   id: number;
@@ -15,23 +22,23 @@ export type Team = {
   teamLeaderId: number;
 }
 
-export type User = {
+export type Users = {
     id: number;
     username: string;
     email: string;
     name: string;
 }
 
-export type TeamMemberAuth = {
+export type UsersAuth = {
   id: number;
-  teamMemberId: number;
+  userId: number;
   password: string;
 }
 
-export type TeamMemberTeamsLink = {
+export type UsersTeamsLink = {
   id: number;
   teamId: number;
-  teamMemberId: number;
+  userId: number;
 }
 
 export type Tasks = {
@@ -41,12 +48,12 @@ export type Tasks = {
   status: TaskStatus;
   dueDate: string;
   isImportant: boolean;
-  taskCreater: number;
+  userCreaterId: number;
 }
 
 export type TaskAssignmentLink = {
   id: number;
-  teamMemberId: number;
+  userId: number;
   taskId: number;
 }
 
@@ -65,7 +72,7 @@ export type Notes = {
   id: number;
   noteTitle: string;
   noteContent: string;
-  teamMemberId: number;
+  userId: number;
   taskId: number;
 }
 

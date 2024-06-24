@@ -1,14 +1,31 @@
 import { ReactNode, useEffect, useState } from "react"
-import { PageStatus, User } from "../../types/types"
+import { PageStatus, Users } from "../../types/types"
 import { defaultData } from "../../functions/default-data"
 import { UserContext } from "../../functions/ProvidersContexts"
+import { GetRequests } from "../../apiCalls"
+import toast from "react-hot-toast"
 
 export const UserProvider = ({children}: {children: ReactNode}) => {
-    const [user, setUser] = useState<User>(defaultData.defaultUser)
-    const [pageStatus, setPageStatus] = useState<PageStatus>('loading')
+    const [user, setUser] = useState<Users>(defaultData.defaultUser);
+    const [pageStatus, setPageStatus] = useState<PageStatus>('loading');
+    const [allUsers, setAllUsers] = useState<Users[]>([])
+
+    const fetchAllUsers = () => {
+        setPageStatus('loading')
+        GetRequests.getAllUsers().then((users) => {
+            setAllUsers(users);
+            setPageStatus('logged-out')
+        })
+        .catch(() => {
+            toast.error('error loading data')
+        })
+
+    }
 
     useEffect(() => {
-        setPageStatus('logged-out')
+        setPageStatus('logged-out');
+        fetchAllUsers();
+
     }, [])
 
     return (
@@ -17,7 +34,8 @@ export const UserProvider = ({children}: {children: ReactNode}) => {
                 user,
                 setUser,
                 pageStatus,
-                setPageStatus
+                setPageStatus,
+                allUsers
             }}
         >
             {children}
