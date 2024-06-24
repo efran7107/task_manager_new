@@ -12,6 +12,11 @@ import {
 
 const baseUrl = "http://localhost:3000";
 
+const postRequestOptions = {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+}
+
 export const GetRequests = {
   getAllTeams: (): Promise<Team[]> => {
     return fetch(`${baseUrl}/teams`).then((response) => response.json());
@@ -45,3 +50,14 @@ export const GetRequests = {
     return fetch(`${baseUrl}/notes`).then((response) => response.json());
   },
 };
+
+export const PostRequests = {
+  
+  createNewUser: (newUser: Omit<Users, 'id'>): Promise<Users> => {
+    return fetch(`${baseUrl}/users`,{...postRequestOptions, body: JSON.stringify(newUser)})
+      .then((res) => res.json())
+  },
+  createUsersAuth: (newUserAuth: Omit<UsersAuth, 'id'>) => {
+    return fetch(`${baseUrl}/usersAuth`,{...postRequestOptions, body: JSON.stringify(newUserAuth)})
+  }
+}

@@ -20,7 +20,8 @@ export const UserTextInput = ({
                 name={id} 
                 id={id} 
                 value={value}   
-                autoComplete="false"             
+                autoComplete="false" 
+                placeholder={label}            
                 {...userInput}
             />
         </div>
