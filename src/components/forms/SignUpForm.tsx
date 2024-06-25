@@ -1,15 +1,13 @@
 import toast from "react-hot-toast";
-import { useLogIn, useUser } from "../../functions/ProvidersContexts";
+import { useLogIn } from "../../functions/ProvidersContexts";
 import { validations } from "../../functions/validations";
 import { UserTextInput } from "../input-components/UserInput";
-import { fetchFromApi } from "../../functions/fetchFromApi";
 import { defaultData } from "../../functions/default-data";
 import { useState } from "react";
 import { ErrorPopUp } from "../errorPopUps/errorPopUp";
 
 export const SignUpForm = () => {
-  const { allUsers, setUser, setPageStatus } = useUser();
-  const { signUp, setSignUp } = useLogIn();
+  const { signUp, setSignUp, checkSignUp } = useLogIn();
   const [isFirstLogIn, setIsFirstLogIn] = useState(true);
   const { firstName, lastName, username, email, newPassword, confirmPassword } =
     signUp;
@@ -19,22 +17,13 @@ export const SignUpForm = () => {
       autoComplete="off"
       onSubmit={(e) => {
         e.preventDefault();
-        if (!validations.isValidSignUpForm(signUp, allUsers)) {
+        if (!validations.isValidSignUpForm(signUp) ) {
           toast.error("please fill out the form to sign up");
           setIsFirstLogIn(false);
           return;
         }
-        fetchFromApi
-          .createUser(signUp)
-          .then((user) => {
-            setUser(user);
-          })
-          .catch(() => {
-            toast.error("something went wrong, please try again");
-          });
+        checkSignUp(signUp, setIsFirstLogIn)
         setSignUp(defaultData.defaultSignUp);
-        setIsFirstLogIn(true);
-        setPageStatus("dashboard");
       }}
     >
       <h3>Sign Up</h3>
@@ -67,7 +56,7 @@ export const SignUpForm = () => {
         )}
       <UserTextInput
         id="username"
-        label="UserName"
+        label="User Name"
         value={signUp.username}
         userInput={{
           type: "text",

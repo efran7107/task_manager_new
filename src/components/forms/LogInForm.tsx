@@ -21,7 +21,6 @@ export const LogInForm = () => {
             setIsFirstLogIn(false)
             return
           }
-
           checkLogIn(logIn, setIsFirstLogIn)
           setLogIn(defaultData.defaultLogIn)
 

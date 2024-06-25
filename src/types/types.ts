@@ -15,7 +15,8 @@ export type TLogInProvider = {
   setLogIn: (logIn: LogIn) => void;
   checkLogIn: (userLogIn: LogIn, setIsFirstLogIn: (firstTime: boolean) => void) => void
   signUp: SignUp
-  setSignUp: (signUp: SignUp) => void
+  setSignUp: (signUp: SignUp) => void;
+  checkSignUp: (signUpForm: SignUp, setIsFirstLogIn: (firstTime: boolean) => void ) => void
 } 
 
 export type Team = {
