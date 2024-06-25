@@ -64,7 +64,7 @@ export const LogInForm = () => {
       {
         !isFirstLogIn && 
           <ErrorPopUp
-            message="wrong username"
+            message="wrong password"
             />
       }
       <input className="active-btn" type="submit" value="Log In" />

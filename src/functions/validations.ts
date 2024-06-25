@@ -37,6 +37,8 @@ const doesUserExist = (username:string, allUsers: Users[]): boolean => {
     return allUsers.filter(user => user.username === username).length === 0
 }
 
+
+
 export const validations = {
     isLogInBlank,
     isValidSignUpForm,
