@@ -19,35 +19,38 @@ const postRequestOptions = {
 
 export const GetRequests = {
   getAllTeams: (): Promise<Team[]> => {
-    return fetch(`${baseUrl}/teams`).then((response) => response.json());
+    return fetch(`${baseUrl}/teams`).then((res) => res.json());
   },
   getAllUsers: (): Promise<Users[]> => {
-    return fetch(`${baseUrl}/users`).then((response) => response.json());
+    return fetch(`${baseUrl}/users`).then((res) => res.json());
+  },
+  getUserByName: (name: string): Promise<Users[]> => {
+    return fetch(`${baseUrl}/users?name=${name}`).then( (res) => res.json());
   },
   getUserAuth: (userId: number): Promise<UsersAuth[]> => {
-    return fetch(`${baseUrl}/usersAuth?userId=${userId}`).then((response) => response.json());
+    return fetch(`${baseUrl}/usersAuth?userId=${userId}`).then((res) => res.json());
   },
   getAllUserTeamLinks: (): Promise<UsersTeamsLink[]> => {
-    return fetch(`${baseUrl}/usersTeamsLink`).then((response) =>
-      response.json()
+    return fetch(`${baseUrl}/usersTeamsLink`).then((res) =>
+      res.json()
     );
   },
   getAllTasks: (): Promise<Tasks[]> => {
-    return fetch(`${baseUrl}/users`).then((response) => response.json());
+    return fetch(`${baseUrl}/users`).then((res) => res.json());
   },
   getAllAssignmentLink: (): Promise<TaskAssignmentLink[]> => {
-    return fetch(`${baseUrl}/taskAssignmentLink`).then((response) =>
-      response.json()
+    return fetch(`${baseUrl}/taskAssignmentLink`).then((res) =>
+      res.json()
     );
   },
   getAllTags: (): Promise<Tags[]> => {
-    return fetch(`${baseUrl}/tags`).then((response) => response.json());
+    return fetch(`${baseUrl}/tags`).then((res) => res.json());
   },
   getAllTaskTagLinks: (): Promise<TaskTagLink[]> => {
-    return fetch(`${baseUrl}/taskTagLink`).then((response) => response.json());
+    return fetch(`${baseUrl}/taskTagLink`).then((res) => res.json());
   },
   getAllNotes: (): Promise<Notes[]> => {
-    return fetch(`${baseUrl}/notes`).then((response) => response.json());
+    return fetch(`${baseUrl}/notes`).then((res) => res.json());
   },
 };
 

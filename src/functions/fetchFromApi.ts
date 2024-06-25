@@ -51,8 +51,13 @@ const createUser = async (signUp: SignUp):Promise<Users> => {
     return user
 }
 
+const getUserFromName = async (name: string):Promise<Users[]> => {
+    return await GetRequests.getUserByName(name)
+}
+
 export const fetchFromApi = {
     fetchAllUsers,
     fetchUserPassword,
-    createUser
+    createUser,
+    getUserFromName
 }

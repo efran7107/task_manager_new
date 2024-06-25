@@ -4,6 +4,7 @@ import { defaultData } from "../../functions/default-data"
 import { UserContext } from "../../functions/ProvidersContexts"
 import { GetRequests } from "../../apiCalls"
 import toast from "react-hot-toast"
+import { fetchFromApi } from "../../functions/fetchFromApi"
 
 export const UserProvider = ({children}: {children: ReactNode}) => {
     const [user, setUser] = useState<Users>(defaultData.defaultUser);
@@ -23,12 +24,18 @@ export const UserProvider = ({children}: {children: ReactNode}) => {
     }
 
     useEffect(() => {
-        if (localStorage.length > 0) {
-            console.log(localStorage);
+        if (localStorage.getItem('user') !== null && localStorage.getItem('user')!.length > 0) {
+            const usersName = localStorage.getItem('user')!
+            fetchFromApi.getUserFromName(usersName)
+                .then((user) => {
+                    const curntUser = user[0]
+                    setUser(curntUser)
+                })
+            
             setPageStatus('dashboard')
+            document.querySelectorAll(".navbar")[0].classList.add("dashboard");
             return;
         }
-        
         fetchAllUsers();
     }, [])
 

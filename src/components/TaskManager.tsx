@@ -1,7 +1,7 @@
 import { useUser } from "../functions/ProvidersContexts"
-import { LoadingPage } from "./LoadingPage"
 import { LogInPage } from "./pages/LogInPage"
 import '../css/LoadingPage.css'
+import { LoadingPage } from "./loadingPage"
 
 export const TaskManager = () => {
 
