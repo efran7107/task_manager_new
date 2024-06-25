@@ -11,6 +11,7 @@ export const UserProvider = ({children}: {children: ReactNode}) => {
     const [allUsers, setAllUsers] = useState<Users[]>([])
 
     const fetchAllUsers = () => {
+        
         setPageStatus('loading')
         GetRequests.getAllUsers().then((users) => {
             setAllUsers(users);
@@ -22,6 +23,12 @@ export const UserProvider = ({children}: {children: ReactNode}) => {
     }
 
     useEffect(() => {
+        if (localStorage.length > 0) {
+            console.log(localStorage);
+            setPageStatus('dashboard')
+            return;
+        }
+        
         fetchAllUsers();
     }, [])
 

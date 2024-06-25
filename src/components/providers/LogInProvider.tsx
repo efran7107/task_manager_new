@@ -38,6 +38,7 @@ export const LogInProvider = ({ children }: { children: ReactNode }) => {
         setUser(user);
         setPageStatus("dashboard");
         toast.success("Log in successful");
+        localStorage.setItem('user', user.name)
         setIsFirstLogIn(true);
         document.querySelectorAll(".navbar")[0].classList.add("dashboard");
       })
