@@ -19,13 +19,10 @@ export const UserProvider = ({children}: {children: ReactNode}) => {
         .catch(() => {
             toast.error('error loading data')
         })
-
     }
 
     useEffect(() => {
-        setPageStatus('logged-out');
         fetchAllUsers();
-
     }, [])
 
     return (

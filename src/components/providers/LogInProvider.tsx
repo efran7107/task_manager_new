@@ -52,9 +52,10 @@ export const LogInProvider = ({ children }: { children: ReactNode }) => {
     signUpForm: SignUp,
     setIsFirstLogIn: (firstTime: boolean) => void
   ) => {
-    if (validations.doesUserExist(signUpForm.username, allUsers)) {
+    if (!validations.doesUserExist(signUpForm.username, allUsers)) {
       toast.error("username already exists");
       setIsFirstLogIn(false);
+      return
     }
     fetchFromApi
       .createUser(signUp)
@@ -69,6 +70,7 @@ export const LogInProvider = ({ children }: { children: ReactNode }) => {
         toast.error("something went wrong, please try again");
       });
   };
+
 
   return (
     <LogInContext.Provider
