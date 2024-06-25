@@ -13,7 +13,10 @@ export type TUserProvider = {
 export type TLogInProvider = {
   logIn: LogIn;
   setLogIn: (logIn: LogIn) => void;
-  checkLogIn: (userLogIn: LogIn) => void
+  checkLogIn: (userLogIn: LogIn, setIsFirstLogIn: (firstTime: boolean) => void) => void
+  signUp: SignUp
+  setSignUp: (signUp: SignUp) => void;
+  checkSignUp: (signUpForm: SignUp, setIsFirstLogIn: (firstTime: boolean) => void ) => void
 } 
 
 export type Team = {
@@ -96,4 +99,14 @@ export type UserInput = ComponentProps<"input">
 export type LogIn = {
   username: string;
   password: string;
+}
+
+export type SignUp = {
+  firstName: string;
+  lastName: string;
+  username: string;
+  email: string;
+  newPassword: string;
+  confirmPassword: string;
+
 }

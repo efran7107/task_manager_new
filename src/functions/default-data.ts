@@ -1,6 +1,6 @@
-import { LogIn, User } from "../types/types"
+import { LogIn, SignUp, Users } from "../types/types"
 
-const defaultUser: User = {
+const defaultUser: Users = {
     id: 0,
     username: "example",
     email: "example@example.com",
@@ -12,7 +12,18 @@ const defaultLogIn:LogIn = {
     password: ""
 }
 
+const defaultSignUp: SignUp = {
+    firstName: '',
+    lastName: '',
+    username: '',
+    email: '',
+    newPassword: '',
+    confirmPassword: ''
+}
+
 export const defaultData = {
     defaultUser,
-    defaultLogIn
+    defaultLogIn,
+    defaultSignUp
 }
+

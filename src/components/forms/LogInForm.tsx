@@ -2,10 +2,13 @@ import { UserTextInput } from "../input-components/UserInput";
 import { validations } from "../../functions/validations";
 import toast from "react-hot-toast";
 import { useLogIn } from "../../functions/ProvidersContexts";
+import { defaultData } from "../../functions/default-data";
+import { useState } from "react";
+import { ErrorPopUp } from "../errorPopUps/errorPopUp";
 
 export const LogInForm = () => {
-
   const {logIn, setLogIn, checkLogIn} = useLogIn()
+  const [isFirstLogIn, setIsFirstLogIn] = useState(true)
 
   return (
     <form 
@@ -15,15 +18,11 @@ export const LogInForm = () => {
           e.preventDefault();
           if(validations.isLogInBlank(logIn)){
             toast.error('please enter a username and/or password')
+            setIsFirstLogIn(false)
             return
           }
-
-          checkLogIn(logIn)
-
-          setLogIn({
-            username: '',
-            password: ''
-          })
+          checkLogIn(logIn, setIsFirstLogIn)
+          setLogIn(defaultData.defaultLogIn)
 
         }}
     >
@@ -42,6 +41,12 @@ export const LogInForm = () => {
           },
         }}
       />
+      {
+        !isFirstLogIn && 
+          <ErrorPopUp
+            message="wrong username"
+            />
+      }
       <UserTextInput
         id="password"
         label="Password"
@@ -56,6 +61,12 @@ export const LogInForm = () => {
           },
         }}
       />
+      {
+        !isFirstLogIn && 
+          <ErrorPopUp
+            message="wrong username"
+            />
+      }
       <input className="active-btn" type="submit" value="Log In" />
     </form>
   );

@@ -6,3 +6,9 @@
   font-size: 45px;
   text-align: center;
 }
+
+.navbar.dashboard h1 {
+  font-size: 24px;
+  text-align: left;
+  margin-left: 20px;
+}
