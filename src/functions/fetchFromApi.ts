@@ -1,7 +1,7 @@
 
 import toast from "react-hot-toast"
 import { GetRequests, PostRequests } from "../apiCalls"
-import { SignUp, Users, UsersAuth } from "../types/types"
+import { AllData, SignUp, Users, UsersAuth } from "../types/types"
 import { formatting } from "./format"
 import { defaultData } from "./default-data"
 
@@ -55,9 +55,23 @@ const getUserFromName = async (name: string):Promise<Users[]> => {
     return await GetRequests.getUserByName(name)
 }
 
+const getAllData = async ():Promise<AllData> => {
+    return {
+        teams: await GetRequests.getAllTeams(),
+        users: await GetRequests.getAllUsers(),
+        usersTeamsLink: await GetRequests.getAllUserTeamLinks(),
+        tasks: await GetRequests.getAllTasks(),
+        taskAssignmentLinks: await GetRequests.getAllAssignmentLink(),
+        tags: await GetRequests.getAllTags(),
+        taskTagsLinks: await GetRequests.getAllTaskTagLinks(),
+        notes: await GetRequests.getAllNotes()
+    }
+}
+
 export const fetchFromApi = {
     fetchAllUsers,
     fetchUserPassword,
     createUser,
-    getUserFromName
+    getUserFromName,
+    getAllData
 }

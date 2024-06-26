@@ -1,4 +1,4 @@
-import { LogIn, SignUp, Users } from "../types/types"
+import { AllData, LogIn, SignUp, Users } from "../types/types"
 
 const defaultUser: Users = {
     id: 0,
@@ -21,9 +21,21 @@ const defaultSignUp: SignUp = {
     confirmPassword: ''
 }
 
+const defaultAllData: AllData = {
+    teams: [],
+    users: [],
+    usersTeamsLink: [],
+    tasks: [],
+    taskAssignmentLinks: [],
+    tags: [],
+    taskTagsLinks: [],
+    notes: []
+}
+
 export const defaultData = {
     defaultUser,
     defaultLogIn,
-    defaultSignUp
+    defaultSignUp,
+    defaultAllData
 }
 

@@ -1,15 +1,17 @@
 import { ReactNode, useState } from "react";
-import { LogIn, SignUp } from "../../types/types";
+import { LogIn, SignUp, Users } from "../../types/types";
 import { defaultData } from "../../functions/default-data";
 import { LogInContext, useUser } from "../../functions/ProvidersContexts";
 import toast from "react-hot-toast";
 import { fetchFromApi } from "../../functions/fetchFromApi";
 import { validations } from "../../functions/validations";
+import { formatting } from "../../functions/format";
 
 export const LogInProvider = ({ children }: { children: ReactNode }) => {
-  const { allUsers, setUser, setPageStatus } = useUser();
+  const { users, setUser, setPageStatus, updateUsers } = useUser();
   const [logIn, setLogIn] = useState<LogIn>(defaultData.defaultLogIn);
   const [signUp, setSignUp] = useState<SignUp>(defaultData.defaultSignUp);
+  const [allUsers, setAllUsers] = useState<Users[]>(users)
 
   const checkLogIn = (
     userLogIn: LogIn,
@@ -58,6 +60,15 @@ export const LogInProvider = ({ children }: { children: ReactNode }) => {
       setIsFirstLogIn(false);
       return
     }
+    setAllUsers([
+      ...allUsers,
+      {
+        id: allUsers[allUsers.length - 1].id + 1,
+        name: formatting.formatName(signUp.firstName, signUp.lastName),
+        username: signUp.username,
+        email: signUp.email
+      }
+    ])
     fetchFromApi
       .createUser(signUp)
       .then((user) => {
@@ -67,12 +78,13 @@ export const LogInProvider = ({ children }: { children: ReactNode }) => {
         localStorage.setItem('user', user.name)
         document.querySelectorAll(".navbar")[0].classList.add("dashboard");
         toast.success("Log in successful");
+        updateUsers()
       })
       .catch(() => {
         toast.error("something went wrong, please try again");
+        setAllUsers(allUsers)
       });
   };
-
 
   return (
     <LogInContext.Provider

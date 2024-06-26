@@ -7,7 +7,9 @@ export type TUserProvider = {
     setUser: (user: Users) => void
     pageStatus: PageStatus
     setPageStatus: (status: PageStatus) => void
-    allUsers: Users[]
+    allData: AllData
+    users: Users[]
+    updateUsers: () => void
 }
 
 export type TLogInProvider = {
@@ -108,5 +110,15 @@ export type SignUp = {
   email: string;
   newPassword: string;
   confirmPassword: string;
+}
 
+export type AllData = {
+  teams: Team[];
+  users: Users[];
+  usersTeamsLink: UsersTeamsLink[];
+  tasks: Tasks[];
+  taskAssignmentLinks: TaskAssignmentLink[];
+  tags: Tags[];
+  taskTagsLinks: TaskTagLink[];
+  notes: Notes[];
 }
