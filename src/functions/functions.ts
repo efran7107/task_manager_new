@@ -18,12 +18,18 @@ const getTeamUsers = (userTeams: Team[], usersTeamLinks: UsersTeamsLink[], users
         const teamMembers: Users[] = []
         userLinks.forEach((link) => {
             const user = users.filter((user) => user.id === link.userId)[0]
+            teamMembers.sort((curUser,nxtUser) =>{ 
+                return curUser.id == team.teamLeaderId ? -1 : nxtUser.id == team.teamLeaderId ? 1 : 0; 
+            });
             teamMembers.push(user)
         })
+
         teamUsers.push(teamMembers)
     })
     return teamUsers
 }
+
+
 
 export const functions = {
     getUsersTeams,
