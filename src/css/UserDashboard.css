@@ -1,3 +1,9 @@
+.dashboard {
+    max-width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .dashboard-navbar {
     display: flex;
     align-items: center;
@@ -5,4 +11,33 @@
     width: 80vw;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.teams-users,
+.teams-container,
+.team-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.teams-users {
+    width: 150px;
+    padding: 15px;
+    gap: 20px;
+    align-items: center;
+    border: 1px solid var(--btn-border-color);
+    border-radius: 20px;
+}
+
+.teams-container {
+    gap: 15px;
+}
+
+.team-container p {
+    margin-bottom: 10px;
+}
+
+.team-container ul li {
+    margin-bottom: 5px;
 }

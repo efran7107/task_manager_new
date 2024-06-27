@@ -1,4 +1,5 @@
 import { Team, Users } from "../../types/types";
+import '../../css/UserDashboard.css'
 
 export const UsersTeams = ({
     userTeams,
@@ -9,18 +10,18 @@ export const UsersTeams = ({
 }) => {
 
     return(
-        <>
+        <div className="teams-container">
             {userTeams.map((team) => (
-                <>
-                    <p key={team.id}>{team.teamName}</p>
+                <div key={team.id} className="team-container">
+                    <p>{team.teamName}</p>
                     <ul>
                         {teamUsers[userTeams.indexOf(team)].map((user) => (
                             <li key={user.id}>{user.name}</li>
                         ))}
                     </ul>
-                </>
+                </div>
             ))}
-        </>
+        </div>
         
     )
 }
