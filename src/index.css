@@ -36,6 +36,7 @@
 
       --radius: 0.5rem;
       font-family: "Roboto Condensed", sans-serif;
+      box-sizing: border-box;
     }
 
     .dark {
@@ -90,4 +91,5 @@
     background-color: var(--btn-border-color);
     color: var(--btn-text-color);
     padding: 5px;
+    cursor: pointer;
   }
