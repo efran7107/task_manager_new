@@ -36,7 +36,7 @@ export const GetRequests = {
     );
   },
   getAllTasks: (): Promise<Tasks[]> => {
-    return fetch(`${baseUrl}/users`).then((res) => res.json());
+    return fetch(`${baseUrl}/tasks`).then((res) => res.json());
   },
   getAllAssignmentLink: (): Promise<TaskAssignmentLink[]> => {
     return fetch(`${baseUrl}/taskAssignmentLink`).then((res) =>

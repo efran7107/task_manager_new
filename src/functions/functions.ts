@@ -1,4 +1,4 @@
-import { Team, Users, UsersTeamsLink } from "../types/types"
+import { Notes, Tags, TaskAssignmentLink, Tasks, TaskTagLink, Team, Users, UsersTeamsLink, UserTasks } from "../types/types"
 
 
 const getUsersTeams = (userId: number, userTeamLinks: UsersTeamsLink[], userTeams: Team[]): Team[] => {
@@ -29,9 +29,31 @@ const getTeamUsers = (userTeams: Team[], usersTeamLinks: UsersTeamsLink[], users
     return teamUsers
 }
 
+const getUsersTasks = (userId: number, taskAssignments: TaskAssignmentLink[], tasks: Tasks[], taskTagLink: TaskTagLink[],tags: Tags[], notes: Notes[] ): UserTasks[] => {
+    const userTaskAssignments = taskAssignments.filter(assignment => assignment.userId === userId)
+    const userTasks: Tasks[] = [];
+    userTaskAssignments.forEach((assignment) => {
+        const task = tasks.find((task) => task.id === assignment.taskId)!
+        userTasks.push(task)
+    })
+    const taskAndTags: UserTasks[] = []
+
+    userTasks.forEach((task) => {
+        const taskTag = taskTagLink.filter((tag) => tag.taskId === task.id)
+        const taskTags: Tags[] = []
+        taskTag.forEach((link) => {
+            const linkedTag = tags.find((tag) => tag.id === link.tagId)!
+            taskTags.push(linkedTag)
+        })
+        const taskNotes = notes.filter((note) => note.taskId === task.id)
+        taskAndTags.push({task: task, tags: taskTags, notes: taskNotes})
+    })
+    return taskAndTags
+}
 
 
 export const functions = {
     getUsersTeams,
-    getTeamUsers
+    getTeamUsers,
+    getUsersTasks
 }

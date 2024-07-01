@@ -81,6 +81,12 @@ export type Notes = {
   taskId: number;
 }
 
+export type UserTasks = {
+  task: Tasks;
+  tags: Tags[];
+  notes: Notes[];
+}
+
 export type TaskStatus = 'to-do' | 'doing' | 'done'
 
 export type Theme = "dark" | "light" | "system";
