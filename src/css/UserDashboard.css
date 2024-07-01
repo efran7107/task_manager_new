@@ -1,0 +1,87 @@
+.dashboard {
+    max-width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.dashboard-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+}
+
+.user-info-area {
+    display: flex;
+    width: 100%;
+}
+
+.teams-users,
+.teams-container,
+.team-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.teams-users {
+    width: 15%;
+    padding: 15px;
+    gap: 20px;
+    align-items: center;
+    border: 1px solid var(--btn-border-color);
+    border-radius: 20px;
+}
+
+.teams-container {
+    gap: 15px;
+}
+
+.team-container p {
+    margin-bottom: 10px;
+}
+
+.team-container ul li {
+    margin-bottom: 5px;
+}
+
+.user-task-board {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.task-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 30%;
+    align-items: center;
+}
+.task-section:nth-child(1) {
+    padding-right: 10px;
+    border-right: 1px solid var(--btn-border-color);
+}
+
+.task-section:nth-child(2) {
+    margin: 0px 10px;
+}
+
+.task-section:nth-child(3) {
+    padding-left: 10px;
+    border-left: 1px solid var(--btn-border-color);
+}
+
+.task {
+    border: 1px solid var(--btn-border-color);
+    padding: 20px;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 65%;
+}

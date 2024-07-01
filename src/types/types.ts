@@ -7,7 +7,9 @@ export type TUserProvider = {
     setUser: (user: Users) => void
     pageStatus: PageStatus
     setPageStatus: (status: PageStatus) => void
-    allUsers: Users[]
+    allData: AllData
+    users: Users[]
+    updateUsers: () => void
 }
 
 export type TLogInProvider = {
@@ -79,6 +81,12 @@ export type Notes = {
   taskId: number;
 }
 
+export type UserTasks = {
+  task: Tasks;
+  tags: Tags[];
+  notes: Notes[];
+}
+
 export type TaskStatus = 'to-do' | 'doing' | 'done'
 
 export type Theme = "dark" | "light" | "system";
@@ -108,5 +116,15 @@ export type SignUp = {
   email: string;
   newPassword: string;
   confirmPassword: string;
+}
 
+export type AllData = {
+  teams: Team[];
+  users: Users[];
+  usersTeamsLink: UsersTeamsLink[];
+  tasks: Tasks[];
+  taskAssignmentLinks: TaskAssignmentLink[];
+  tags: Tags[];
+  taskTagsLinks: TaskTagLink[];
+  notes: Notes[];
 }

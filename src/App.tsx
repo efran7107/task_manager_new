@@ -10,14 +10,17 @@ function App() {
   return (
     <>
       <ThemeProvider defaultTheme="system" storageKey="vite-iu-theme">
-        <ModeToggle />
-        <Toaster />
-        <div className="navbar">
-          <h1>Task Manager</h1>
+        <div className="container">
+          <ModeToggle />
+          <Toaster />
+          <div className="navbar">
+            <h1>Task Manager</h1>
+          </div>
+          <UserProvider>
+            <TaskManager />
+          </UserProvider>
         </div>
-        <UserProvider>
-          <TaskManager />
-        </UserProvider>
+        
       </ThemeProvider>
     </>
   )

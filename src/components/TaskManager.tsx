@@ -1,7 +1,8 @@
 import { useUser } from "../functions/ProvidersContexts"
-import { LoadingPage } from "./LoadingPage"
 import { LogInPage } from "./pages/LogInPage"
 import '../css/LoadingPage.css'
+import { LoadingPage } from "./loadingPage"
+import { UserDashBoard } from "./UserDashBoard"
 
 export const TaskManager = () => {
 
@@ -10,6 +11,7 @@ export const TaskManager = () => {
         <>
             {pageStatus === 'loading' && <LoadingPage/>}
             {pageStatus === 'logged-out' && <LogInPage />}
+            {pageStatus === 'dashboard' && <UserDashBoard />}
         </>
     )
 }
